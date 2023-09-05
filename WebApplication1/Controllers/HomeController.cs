@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         {
             var aluno = new AlunoModel()
             {
-            Nome="Alcassa",
+            Nome="Guilherme Alcassa",
             Curso="Desenvolvimento de Sistemas"
             };
             return View(aluno);
