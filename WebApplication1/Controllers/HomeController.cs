@@ -15,6 +15,16 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public IActionResult ExibirAluno()
+        {
+            var aluno = new AlunoModel()
+            {
+            Nome="Alcassa",
+            Curso="Desenvolvimento de Sistemas"
+            };
+            return View(aluno);
+        }
+
         public IActionResult Praticar()
         {
             return View();
