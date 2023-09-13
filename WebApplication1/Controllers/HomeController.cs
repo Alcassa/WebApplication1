@@ -15,15 +15,17 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult ExibirAluno()
+        public IActionResult ExibirCarro()
         {
-            var aluno = new AlunoModel()
+            var carro = new CarroModel()
             {
-            Nome="Guilherme Alcassa",
-            Curso="Desenvolvimento de Sistemas"
+                Marca = "Audi",
+                Tipo = "Sedan",
+                Ano = 2019
             };
-            return View(aluno);
+            return View(carro); 
         }
+      
 
         public IActionResult Praticar()
         {

@@ -1,10 +1,10 @@
 ﻿@model WebApplication1.Models.AlunoModel
 
 @{
-    ViewData["Title"] = "ExibirAluno";
+    ViewData["Title"] = "Details";
 }
 
-<h2>ExibirAluno</h2>
+<h2>Details</h2>
 
 <div>
     <h4>AlunoModel</h4>
@@ -21,6 +21,18 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Curso)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Faltas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Faltas)
         </dd>
     </dl>
 </div>
