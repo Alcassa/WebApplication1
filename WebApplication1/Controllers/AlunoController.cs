@@ -36,6 +36,7 @@ namespace WebApplication1.Controllers
             try
             {
                 // TODO: Add insert logic here
+                var aluno = new AlunoModel();
 
                 return RedirectToAction(nameof(Index));
             }
