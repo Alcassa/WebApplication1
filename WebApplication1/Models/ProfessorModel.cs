@@ -7,5 +7,6 @@
         public int Aulas { get; set; }
         public string Materia { get; set; }
 
+
     }
 }

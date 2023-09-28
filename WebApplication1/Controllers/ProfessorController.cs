@@ -7,10 +7,11 @@ namespace WebApplication1.Controllers
 {
     public class ProfessorController : Controller
     {
-        // GET: ProfessorController
-        public ActionResult Index()
+        private static List<ProfessorModel> professores;
+
+        public ProfessorController()
         {
-            List<ProfessorModel> professores = new List<ProfessorModel>()
+            professores = new List<ProfessorModel>()
             {
                 new ProfessorModel()
                 {
@@ -25,13 +26,19 @@ namespace WebApplication1.Controllers
                     Aulas=100
                 }
             };
+        }
+
+        // GET: ProfessorController
+        public ActionResult Index()
+        {
             return View(professores);
         }
 
         // GET: ProfessorController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var prof = professores.Find(e => e.Id == id);
+            return View(prof);
         }
 
         // GET: ProfessorController/Create
@@ -47,7 +54,13 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var prof = new ProfessorModel();
+                prof.Nome = collection["Nome"];
+                prof.Aulas = int.Parse(collection["Aulas"]);
+                prof.Materia = collection["Materia"];
+                prof.Id = professores.Count + 1;
+                professores.Add(prof);
+                return View("Index",professores);
             }
             catch
             {
@@ -58,7 +71,8 @@ namespace WebApplication1.Controllers
         // GET: ProfessorController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var prof = professores.Find(e => e.Id == id);
+            return View(prof);
         }
 
         // POST: ProfessorController/Edit/5
@@ -68,7 +82,10 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var prof = professores.Find(e => e.Id == id);
+                prof.Aulas = int.Parse(collection["Aulas"]);
+                prof.Materia = collection["Materia"];
+                return View("Index", professores);
             }
             catch
             {
@@ -79,7 +96,8 @@ namespace WebApplication1.Controllers
         // GET: ProfessorController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var prof = professores.Find(e => e.Id == id);
+            return View(prof);
         }
 
         // POST: ProfessorController/Delete/5
@@ -89,7 +107,10 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var prof = professores.Find(e => e.Id == id);
+                professores.Remove(prof);
+
+                return View("Index", professores);
             }
             catch
             {
